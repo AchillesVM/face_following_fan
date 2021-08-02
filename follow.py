@@ -72,7 +72,7 @@ class Follower(object):
             x_disp_px = centre[0] - PROC_RES[0] / 2
 
             # calculate displacement in degrees and apply fudge factor
-            y_disp_deg = y_disp_px * self.dpp[1] * 0.25 * -1  # flip pan axis only
+            y_disp_deg = y_disp_px * self.dpp[1] * 0.25 * -1  # flip tilt axis only
             x_disp_deg = x_disp_px * self.dpp[0] * 0.35
 
             # if centre of object is outside deadzone, move servos to adjust
