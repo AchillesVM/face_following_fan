@@ -1,5 +1,7 @@
 # Face Following Fan
 
+![](docs/my_biggest_fan.jpg)
+
 This project uses object detection (in this case face detection) to follow an object around the room and blow on it using pan and tilt motion.
 
 This is a work in progress. It is both incredibly dangerous and horrendously impractical. That is exactly why I made it.
