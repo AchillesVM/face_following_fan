@@ -40,7 +40,7 @@ class Follower(object):
         self.x_dz_lim = (- PROC_RES[0] * (DEADZONE_RANGE[0] - DEADZONE_OFFSET[0]),
                          PROC_RES[0] * (DEADZONE_RANGE[0] + DEADZONE_OFFSET[0]))
 
-        # load classification model
+        # load object recognition model
         self.cascade = CascadeClassifier(CASCADE_PATH)
 
         # centre servos and start fan
