@@ -21,5 +21,5 @@ This is a work in progress. It is both incredibly dangerous and horrendously imp
 
 This project uses a [custom output](https://picamera.readthedocs.io/en/release-1.12/recipes2.html#custom-outputs) to efficiently capture full-frame, low resolution greyscale images from a Raspberry Pi Camera v2 (more information [here](https://raspberrypi.stackexchange.com/a/58941/64647)).
 After capture, the image is processed by a Haar cascade (model available [here](https://github.com/opencv/opencv/blob/master/data/haarcascades/haarcascade_frontalface_default.xml)), configured to return a bounding box containing the "largest" face.
-The coordinates of the centre of that bounding box is calculated, and if the face is far enough from the centre of the image, the servos will adjust their positions to aim the fan directly at the face.
+The coordinates of the centre of that bounding box are calculated, and if the face is far enough from the centre of the image, the servos will adjust their positions to aim the fan directly at the face.
 Each loop takes under 0.06 seconds.
