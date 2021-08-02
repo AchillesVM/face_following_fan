@@ -9,8 +9,8 @@ CASCADE_PATH = 'haarcascade_frontalface_default.xml'
 PROC_RES = (256, 192)  # image processing resolution
 FOV = (62.2, 48.8)  # field-of-view of the camera
 
-DEADZONE_RANGE = (0.1, 0.075)  # horizontal deadzone percentage
-DEADZONE_OFFSET = (0, 0.05)  # horizontal deadzone offset
+DEADZONE_RANGE = (0.1, 0.075)  # deadzone percentage
+DEADZONE_OFFSET = (0, 0.05)  # deadzone offset
 
 FAN_IDX = 11  # pin index of the fan motor
 FAN_SPEED = 50  # speed of the fan (0 -> 180)
@@ -23,7 +23,7 @@ PAN_RANGE = (40, 140)  # operating range of the pan servo
 
 TILT_IDX = 7  # pin index of the tilt servo
 TILT_CENTRE = 150  # starting position of the tilt servo
-TILT_RANGE = (100, 180)  # operating range of the tile servo
+TILT_RANGE = (100, 180)  # operating range of the tilt servo
 
 
 class Follower(object):
@@ -77,12 +77,10 @@ class Follower(object):
 
             # if centre of object is outside deadzone, move servos to adjust
             if not self.y_dz_lim[0] < y_disp_px < self.y_dz_lim[1]:
-                self.kit.servo[TILT_IDX].angle = max(TILT_RANGE[0], min(TILT_RANGE[1], int(
-                    self.kit.servo[TILT_IDX].angle - y_disp_deg)))
+                self.kit.servo[TILT_IDX].angle = max(TILT_RANGE[0], min(TILT_RANGE[1], int(self.kit.servo[TILT_IDX].angle - y_disp_deg)))
 
             if not self.x_dz_lim[0] < x_disp_px < self.x_dz_lim[1]:
-                self.kit.servo[PAN_IDX].angle = max(PAN_RANGE[0],
-                                                    min(PAN_RANGE[1], int(self.kit.servo[PAN_IDX].angle - x_disp_deg)))
+                self.kit.servo[PAN_IDX].angle = max(PAN_RANGE[0], min(PAN_RANGE[1], int(self.kit.servo[PAN_IDX].angle - x_disp_deg)))
 
     def flush(self):
         """ Executes when the recording is terminated, setting the fan speed to 0 for safety.
