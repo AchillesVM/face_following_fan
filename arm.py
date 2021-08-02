@@ -3,7 +3,13 @@ from time import sleep
 
 FAN_IDX = 11
 
-if __name__ == '__main__':
+
+def arm():
+    """ Executes the arming procedure for brushless motors.
+
+    For safety, some brushless must be armed before use. This method arms the motor by setting 0% power for two seconds,
+    then 100% power for two seconds and finally back to 0%.
+    """
 
     kit = ServoKit(channels=16)
 
@@ -15,3 +21,9 @@ if __name__ == '__main__':
 
     kit.servo[FAN_IDX].angle = 0
 
+    print("Motor armed!")
+
+
+if __name__ == '__main__':
+
+    arm()
