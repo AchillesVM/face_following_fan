@@ -48,9 +48,11 @@ class Follower(object):
         self.kit.servo[FAN_IDX].angle = 50
 
     def write(self, buf):
-        """ This method is called immediately after each image capture, performs the object detection and adjusts the servo positions to follow the object.
+        """ This method is called immediately after each image capture, performs the object detection and adjusts the
+        servo positions to follow the object.
 
-        The greyscale image is read directly from the buffer and loaded into a numpy array. The Haar cascade identifies the largest object in the image and adjust the servo positions accordingly.
+        The greyscale image is read directly from the buffer and loaded into a numpy array. The Haar cascade identifies
+        the largest object in the image and adjust the servo positions accordingly.
 
         :param buf: PiCamera memory buffer
         """
@@ -125,8 +127,10 @@ class Follower(object):
 
 
 def follow():
+
     with PiCamera(sensor_mode=4, resolution=f"{PROC_RES[0]}x{PROC_RES[1]}", framerate=40) as camera:
-        # wait for camera to initialise
+
+        # wait for camera to init
         sleep(2)
 
         # instantiate follower class
